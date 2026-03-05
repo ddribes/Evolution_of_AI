@@ -1,0 +1,16 @@
+name: tsne_vgg16
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - numpy
+  - matplotlib
+  - scikit-learn
+  - pillow
+  - pip
+
+  - pip:
+      - tensorflow
