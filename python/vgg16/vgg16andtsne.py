@@ -8,6 +8,11 @@ Original file is located at
 Setup + imports
 """
 
+# Install Missing Library
+import subprocess
+subprocess.run(["pip", "install", "tensorflow"], check=True)
+subprocess.run(["pip", "install", "scikit-learn"], check=True)
+
 import os, glob
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,31 +25,19 @@ from tensorflow.keras.preprocessing import image as keras_image
 from sklearn.manifold import TSNE
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-"""Download Dataset
+import os
+import matplotlib.pyplot as plt
+from matplotlib.offsetbox import OffsetImage, AnnotationBbox
+from tensorflow.keras.preprocessing import image as keras_image
+import numpy as np
+from datetime import datetime
 
-Animals-10
 
-Upload: Kaggle.json
-"""
-
-!pip install kaggle
-
-from google.colab import files
-files.upload()  # upload kaggle.json
-
-!mkdir ~/.kaggle
-!cp kaggle.json ~/.kaggle/
-!chmod 600 ~/.kaggle/kaggle.json
-
-!kaggle datasets download -d alessiocorrado99/animals10
-!unzip animals10.zip
-
-"""Collect image paths"""
 
 import glob
 import os
 
-DATA_DIR = "/content/raw-img"
+DATA_DIR = "./raw-img"
 
 extensions = ["jpg", "jpeg", "png", "bmp", "webp"]
 
@@ -110,15 +103,8 @@ print("t-SNE done. Z range:", Z_norm.min(), Z_norm.max())
 
 """Plot images as thumbnails"""
 
-import os
-import matplotlib.pyplot as plt
-from matplotlib.offsetbox import OffsetImage, AnnotationBbox
-from tensorflow.keras.preprocessing import image as keras_image
-import numpy as np
-from datetime import datetime
-
 def plot_tsne_images(paths, coords01, thumb_size=(64,64), thumb_zoom=0.55, max_images=None,
-                     save_path="/content/tsne_vgg16.png", dpi=300):
+                     save_path="./tsne_vgg16.png", dpi=300):
     if max_images is not None and len(paths) > max_images:
         rng = np.random.RandomState(0)
         idx = rng.choice(len(paths), size=max_images, replace=False)
@@ -149,6 +135,6 @@ def plot_tsne_images(paths, coords01, thumb_size=(64,64), thumb_zoom=0.55, max_i
 
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-save_path = f"/content/tsne_vgg16_thumbnails_{timestamp}.png"
+save_path = f"./tsne_vgg16_thumbnails_{timestamp}.png"
 
 plot_tsne_images(paths, Z_norm, save_path=save_path, dpi=300)
