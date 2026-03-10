@@ -21,10 +21,11 @@
   https://colab.research.google.com/github/ddribes/Evolution_of_AI/blob/main/notebooks/D3_Vgg16andTsne.ipynb
   )
 
-- D3 01 — SDXL (diffusion Model)
+- D3 02 — SDXL (diffusion Model)
   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
   https://colab.research.google.com/github/ddribes/Evolution_of_AI/blob/main/notebooks/D3_SDXL.ipynb
   )
+
 
 
 
