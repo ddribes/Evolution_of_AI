@@ -26,6 +26,12 @@
   https://colab.research.google.com/github/ddribes/Evolution_of_AI/blob/main/notebooks/D3_SDXL.ipynb
   )
 
+- D3 03 — Finetuning SDXL with LORA
+  [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](
+  https://colab.research.google.com/github/ddribes/Evolution_of_AI/blob/main/notebooks/D3_finetuningSDXL.ipynb
+  )
+
+
 
 
 
